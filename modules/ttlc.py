@@ -41,9 +41,7 @@ class cnnTTLC(nn.Module):
                  bool_use_bias=False,
                  dropout_rate=None,
                  cnnType=None,
-                 name=None,
-                 bool_normalise_output=False,
-                 alpha_triplet=2.0):
+                 name=None,):
         """Initialise a CNN classifier for the TTLC.
 
         The following arguments are required to create a feature extraction
@@ -193,10 +191,6 @@ class cnnTTLC(nn.Module):
             self.cnnType = 'standard'
         else:
             self.cnnType = cnnType
-
-        # Set a boolean whether the output should be normalised or not
-        self.bool_normalise_output = bool_normalise_output
-        self.alpha_triplet = alpha_triplet
 
         # Ensure that there are the same number of filters as hidden layers
         if not self.cnnType == 'dense':
@@ -355,9 +349,3 @@ class cnnTTLC(nn.Module):
                                              **hidden_arg
                                              )
                                         )
-
-
-    def normalise(self,
-                  x: t.Tensor) -> t.Tensor:
-        """Function to normalise the outputs to unit norm"""
-        return t.nn.functional.normalize(x)

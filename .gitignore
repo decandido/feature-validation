@@ -137,3 +137,5 @@ dmypy.json
 *.mat
 *.pkl
 *.pt
+results/
+

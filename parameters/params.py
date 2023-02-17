@@ -25,10 +25,6 @@ data_path = './data/highD/'
 training_data = '21_03_04_highD_150_balanced_spb2.mat'
 # Results scope
 scope = 'ttlc-highd'
-# parameter for windowing function
-window_size = 50
-# parameter for interperlation
-num_frames_interp = 60
 
 # Some parameters for the training
 epochs = 2
